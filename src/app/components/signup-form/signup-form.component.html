@@ -6,6 +6,7 @@
             id="username" 
             type="text" 
             class="form-control">
+        <div *ngIf="username.pending">Checking for Uniqueness...</div>
         <div *ngIf="username.touched && form.get('username').invalid" class="alert-danger alert">
             <div *ngIf="username.errors.required">Username is Required.</div>
             <div *ngIf="username.errors.minlength">Username should be minimum {{ username.errors.minlength.requiredLength }} characters.</div>
