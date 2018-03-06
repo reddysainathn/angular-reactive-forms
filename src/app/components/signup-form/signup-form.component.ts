@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms'
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 @Component({
   selector: 'signup-form',
   templateUrl: './signup-form.component.html',
@@ -7,7 +8,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class SignupFormComponent {
   form = new FormGroup({
-    username: new FormControl('', Validators.required),
+    username: new FormControl('', [
+      Validators.minLength(3),
+      Validators.required
+    ]),
     password: new FormControl('', Validators.required),
   });
 
